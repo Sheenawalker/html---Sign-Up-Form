@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Signup Form</title> 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error-message {
+      color: red;
+      margin-bottom: 10px;
+    }
+
+    .signin-link {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .signin-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <h2>Signup Form</h2> 
+   <form id="signup-form" action="#" method="post"> 
+    <input type="text" id="username" name="username" placeholder="Username"> 
+    <input type="email" id="email" name="email" placeholder="Email"> 
+    <input type="password" id="password" name="password" placeholder="Password"> 
+    <input type="submit" value="Sign Up"> 
+   </form> 
+   <div id="error-message" class="error-message" style="display: none;"></div> 
+   <div class="signin-link">
+    Already have an account? <a href="#">Sign in</a>
+   </div> 
+  </div> 
+  <script>
+    const form = document.getElementById('signup-form');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = form.username.value.trim();
+      const email = form.email.value.trim();
+      const password = form.password.value.trim();
+
+      if (username === '' || email === '' || password === '') {
+        errorMessage.textContent = 'Please fill in all fields';
+        errorMessage.style.display = 'block';
+      } else {
+        // Here you can add further validation or submit the form
+        errorMessage.style.display = 'none';
+        // For demo, just log the values
+        console.log('Username:', username);
+        console.log('Email:', email);
+        console.log('Password:', password);
+      }
+    });
+  </script> 
+ </body>
+</html>
